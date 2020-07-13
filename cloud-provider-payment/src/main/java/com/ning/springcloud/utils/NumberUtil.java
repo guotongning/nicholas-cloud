@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * @Description
  * @Date 2020/7/13 15:03
- * @Created by nicholas
+ * @Created by 不在能知，乃在能行 ——nicholas
  */
 public class NumberUtil {
 

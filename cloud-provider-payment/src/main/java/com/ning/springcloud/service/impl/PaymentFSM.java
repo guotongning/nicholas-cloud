@@ -7,7 +7,7 @@ import com.ning.springcloud.service.IPaymentFSM;
 /**
  * @Description 订单 流水 的状态机。（所有状态改变的动作的实现。）
  * @Date 2020/7/13 17:22
- * @Created by nicholas
+ * @Created by 不在能知，乃在能行 ——nicholas
  */
 public class PaymentFSM implements IPaymentFSM {
 
