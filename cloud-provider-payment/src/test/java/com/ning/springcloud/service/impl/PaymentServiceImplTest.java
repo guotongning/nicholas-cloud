@@ -2,10 +2,13 @@ package com.ning.springcloud.service.impl;
 
 import com.ning.springcloud.basetest.BaseTest;
 import com.ning.springcloud.entities.dao.Payment;
+import com.ning.springcloud.entities.enums.OrderStatus;
 import com.ning.springcloud.service.PaymentService;
+import com.ning.springcloud.utils.NumberUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -21,7 +24,20 @@ public class PaymentServiceImplTest extends BaseTest {
 
     @Test
     public void create() {
-        Payment payment = new Payment(1L, "12345678910");
+        Payment payment = new Payment();
+        long time = System.currentTimeMillis();
+        payment.setCreateTime(time)
+                .setUpdateTime(time)
+                .setOrderAmount(101L)
+                .setOrderNo(NumberUtil.getOrderNo())
+                .setOrderStatus(1)
+                .setOrderType(1)
+                .setPaymentAttachment("asdfasdf")
+                .setPaymentType(1)
+                .setReceiverId(1L)
+                .setReviewerId(1L)
+                .setSerials("{'123412341235','123412341234','123412341236'}")
+                .setSubmitterId(1L);
         int result = paymentService.create(payment);
         log.info("insert {}", result > 0 ? "success" : "fail");
     }
