@@ -39,12 +39,12 @@ public class PaymentServiceImplTest extends BaseTest {
                 .setSerials("{'123412341235','123412341234','123412341236'}")
                 .setSubmitterId(1L);
         int result = paymentService.create(payment);
-        log.info("insert {}", result > 0 ? "success" : "fail");
+        log.info("insert {} id={}", result > 0 ? "success" : "fail", payment.getId());
     }
 
     @Test
     public void getPaymentById() {
-        Payment payment = paymentService.getPaymentById(1L);
+        Payment payment = paymentService.getPaymentById(2L);
         log.info("payment={}", payment);
     }
 }

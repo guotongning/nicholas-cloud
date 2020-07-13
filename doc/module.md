@@ -23,7 +23,7 @@
 ```mysql
 CREATE TABLE `payment`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `serials` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '订单流水号的json数组',
+  `serials` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '订单流水号的json数组',
   `orderNo` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '订单号',
   `submitterId` bigint(20) NULL DEFAULT NULL COMMENT '订单提交人ID',
   `orderType` int(2) NULL DEFAULT NULL COMMENT '订单类型',
