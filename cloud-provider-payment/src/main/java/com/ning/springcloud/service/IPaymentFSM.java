@@ -4,6 +4,8 @@ import com.ning.springcloud.entities.dao.Payment;
 import com.ning.springcloud.entities.dao.Transaction;
 
 /**
+ * 状态流转控制
+ *
  * @see com.ning.springcloud.entities.enums.OrderType
  * @see com.ning.springcloud.entities.enums.OrderStatus
  */

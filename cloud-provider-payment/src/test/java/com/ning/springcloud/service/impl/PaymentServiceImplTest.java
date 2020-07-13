@@ -1,5 +1,7 @@
 package com.ning.springcloud.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ning.springcloud.basetest.BaseTest;
 import com.ning.springcloud.entities.dao.Payment;
 import com.ning.springcloud.entities.enums.OrderStatus;
@@ -45,6 +47,7 @@ public class PaymentServiceImplTest extends BaseTest {
     @Test
     public void getPaymentById() {
         Payment payment = paymentService.getPaymentById(2L);
-        log.info("payment={}", payment);
+        log.info("payment={}", JSON.toJSONString(payment, SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteDateUseDateFormat));
     }
 }
