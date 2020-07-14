@@ -1,11 +1,8 @@
-package com.ning.springcloud.basetest;
+package com.ning.springcloud.common.test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @Author: 不在能知，乃在能行 ——nicholas
