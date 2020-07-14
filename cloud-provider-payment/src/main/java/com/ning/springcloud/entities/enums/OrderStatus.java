@@ -2,5 +2,5 @@ package com.ning.springcloud.entities.enums;
 
 
 public enum OrderStatus {
-    A,B,C
+    发起, 支付中, 完成支付, 落地
 }

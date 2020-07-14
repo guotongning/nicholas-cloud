@@ -10,11 +10,11 @@ import com.ning.springcloud.entities.dao.Transaction;
  * @see com.ning.springcloud.entities.enums.OrderStatus
  */
 public interface IPaymentFSM {
-    public Payment initPayment();
+    public Payment createPayment();
 
     public Payment completePayment(Payment payment);
 
-    public Transaction initTransaction();
+    public Transaction createTransaction();
 
     public Transaction completeTransaction(Transaction transaction);
 }

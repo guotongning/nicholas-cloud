@@ -12,7 +12,7 @@ import com.ning.springcloud.service.IPaymentFSM;
 public class PaymentFSM implements IPaymentFSM {
 
     @Override
-    public Payment initPayment() {
+    public Payment createPayment() {
         return null;
     }
 
@@ -22,7 +22,7 @@ public class PaymentFSM implements IPaymentFSM {
     }
 
     @Override
-    public Transaction initTransaction() {
+    public Transaction createTransaction() {
         return null;
     }
 
