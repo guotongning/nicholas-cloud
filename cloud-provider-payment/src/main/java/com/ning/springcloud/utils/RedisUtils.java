@@ -22,17 +22,12 @@ public class RedisUtils {
     public RedisTemplate<String, Object> redisTemplate;
 
     // =============================common============================
-
     /**
-     * 26
      * 指定缓存失效时间
-     * 27
      *
      * @param key  键
-     *             28
      * @param time 时间(秒)
-     *             29
-     * @return 30
+     * @return
      */
     public boolean expire(String key, long time) {
         try {

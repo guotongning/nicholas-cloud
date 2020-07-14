@@ -21,8 +21,11 @@ public class PaymentController {
     private PaymentService paymentService;
 
 
-    @PostMapping(value = "/create")
+    @PutMapping(value = "/create")
     public CommonResult<Payment> createPayment(Payment payment) {
+        if (payment == null || !payment.check()) {
+            return new CommonResult<>(-1, "参数不合法", null);
+        }
         int result = paymentService.create(payment);
         if (result > 0) {
             log.info("insert payment success payment={}", payment);

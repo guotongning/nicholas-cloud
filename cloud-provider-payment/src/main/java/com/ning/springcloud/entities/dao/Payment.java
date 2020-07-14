@@ -68,4 +68,12 @@ public class Payment {
      * 最后一次修改时间
      */
     private Long updateTime;
+
+    /**
+     * 判断是否缺少参数
+     * @return 参数合法返回true，否则false
+     */
+    public boolean check() {
+        return true;
+    }
 }

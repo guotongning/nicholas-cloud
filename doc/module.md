@@ -40,6 +40,32 @@ CREATE TABLE `payment`  (
   INDEX `createTime`(`createTime`) USING BTREE,
   INDEX `submitterId_orderType_orderSuatus`(`submitterId`, `orderType`, `orderStatus`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `transaction`  (
+  `id` bigint(20) NOT NULL,
+  `serial` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '流水序列号',
+  `transactionType` int(2) NULL DEFAULT NULL COMMENT '交易类型',
+  `transactionStatus` int(2) NULL DEFAULT NULL COMMENT '交易状态',
+  `paymentUserId` bigint(20) NULL DEFAULT NULL COMMENT '付款方用户id',
+  `paymentAccount` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '付款方账号',
+  `paymentUsername` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '付款方昵称',
+  `paymentPhone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '付款方手机号',
+  `paymentIdentityID` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '付款方身份证号',
+  `paymentAddress` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '付款方地址',
+  `paymentTime` bigint(20) NULL DEFAULT NULL COMMENT '出账时间',
+  `collectUserId` bigint(20) NULL DEFAULT NULL COMMENT '收款方用户id',
+  `collectAccount` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收款方账号',
+  `collectUsername` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收款方昵称',
+  `collectPhone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收款方手机号',
+  `collectIdentityID` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收款方身份证号',
+  `collectAddress` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收款方地址',
+  `collectTime` bigint(20) NULL DEFAULT NULL COMMENT '入账时间（到账时间）',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `paymentId_type_status`(`paymentUserId`, `transactionType`, `transactionStatus`) USING BTREE,
+  INDEX `collectUserId`(`collectUserId`) USING BTREE,
+  INDEX `paymentTime`(`paymentTime`) USING BTREE,
+  INDEX `collectTime`(`collectTime`) USING BTREE,
+  UNIQUE INDEX `serial`(`serial`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 ```
 
 > 接口
