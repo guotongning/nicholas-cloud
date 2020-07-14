@@ -12,6 +12,8 @@
     <modules>
         <module>cloud-provider-payment</module>
         <module>api-base-utils</module>
+        <module>cloud-consumer-order</module>
+        <module>api-provider-payment</module>
     </modules>
 
     <!--jar 版本统一管理-->

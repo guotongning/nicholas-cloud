@@ -1,7 +1,7 @@
 package com.ning.springcloud.controller;
 
 import com.ning.springcloud.entities.dao.Payment;
-import com.ning.springcloud.entities.response.CommonResult;
+import com.ning.springcloud.common.response.CommonResult;
 import com.ning.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ning.springcloud.dao.PaymentDao">
+<mapper namespace="com.ning.springcloud.entities.dao.PaymentDao">
     <sql id="PaymentSelect">
         SELECT `id`,
             serials,
@@ -52,7 +52,7 @@
 
     <resultMap id="BaseResultMap" type="com.ning.springcloud.entities.dao.Payment">
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <id column="serial" property="serial" jdbcType="VARCHAR"/>
+        <id column="serials" property="serials" jdbcType="VARCHAR"/>
         <id column="orderNo" property="orderNo" jdbcType="VARCHAR"/>
         <id column="submitterId" property="submitterId" jdbcType="BIGINT"/>
         <id column="orderType" property="orderType" jdbcType="INTEGER"/>
