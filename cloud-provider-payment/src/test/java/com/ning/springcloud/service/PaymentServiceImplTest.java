@@ -4,15 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ning.springcloud.basetest.BaseTest;
 import com.ning.springcloud.entities.dao.Payment;
-import com.ning.springcloud.entities.enums.OrderStatus;
-import com.ning.springcloud.service.PaymentService;
-import com.ning.springcloud.utils.NumberUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import com.ning.springcloud.utils.NumberUtil;
 
 import javax.annotation.Resource;
 

@@ -40,6 +40,7 @@ CREATE TABLE `payment`  (
   INDEX `createTime`(`createTime`) USING BTREE,
   INDEX `submitterId_orderType_orderSuatus`(`submitterId`, `orderType`, `orderStatus`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+=============================================
 CREATE TABLE `transaction`  (
   `id` bigint(20) NOT NULL,
   `serial` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '流水序列号',
@@ -66,6 +67,7 @@ CREATE TABLE `transaction`  (
   INDEX `collectTime`(`collectTime`) USING BTREE,
   UNIQUE INDEX `serial`(`serial`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+=============================================
 ```
 
 > 接口
@@ -85,4 +87,12 @@ CREATE TABLE `transaction`  (
 | 接口 | 描述 | 请求方式 | 参数 |
 | ---- | ---- | -------- | ---- |
 |      |      |          |      |
+
+## api-base-utils 通用工具
+
+> 描述
+
+```tex
+所有项目都会用到的通用好用的工具类的聚合。
+```
 
