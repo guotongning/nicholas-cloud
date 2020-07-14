@@ -1,4 +1,4 @@
-package com.ning.springcloud.service.impl;
+package com.ning.springcloud.service;
 
 import com.ning.springcloud.basetest.BaseTest;
 import com.ning.springcloud.entities.dao.Payment;

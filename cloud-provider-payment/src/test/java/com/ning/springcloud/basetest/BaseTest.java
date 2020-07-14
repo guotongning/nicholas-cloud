@@ -12,8 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @Date: 2020/7/12 17:12
  * @Descreption:
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
 @Slf4j
 public class BaseTest {
 
