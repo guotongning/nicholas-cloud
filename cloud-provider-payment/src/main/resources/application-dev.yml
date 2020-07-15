@@ -1,0 +1,3 @@
+nacos:
+  config:
+    namespace: 498afeb0-ff53-488c-9bc4-fcd8c7060bfe
