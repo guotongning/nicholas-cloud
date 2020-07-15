@@ -45,7 +45,7 @@ public abstract class AbstractConfigInfo<T> implements InitializingBean, Listene
     public void afterPropertiesSet() throws RuntimeException {
         try {
             String configInfo = configService.getConfig(getDataId(), getGroupId(), getTimeout());
-            log.info("{}#afterPropertiesSet init configInfo. configInfo={}", clazzSimpleName, configInfo);
+            log.info("配置初始化 Class={} configInfo={}", clazzSimpleName, configInfo);
             compile(configInfo);
             configService.addListener(getDataId(), getGroupId(), this);
         } catch (Exception e) {
