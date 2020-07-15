@@ -22,7 +22,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: localhost:8848 #注册中心
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848 #配置中心
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ning.springcloud.entities.dao

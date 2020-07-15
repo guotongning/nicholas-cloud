@@ -31,6 +31,7 @@
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
         <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
         <fastjson.version>1.2.72</fastjson.version>
+        <config.version>0.2.1</config.version>
     </properties>
 
     <!--锁定版本 子模块不用再写groupId version-->
@@ -66,6 +67,11 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${config.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
@@ -95,6 +101,11 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>1.26</version>
             </dependency>
             <dependency>
                 <groupId>org.hamcrest</groupId>
