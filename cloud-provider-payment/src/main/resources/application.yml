@@ -1,6 +1,13 @@
 server:
   port: 8001
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848 #配置中心
 spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #注册中心
   application:
     name: cloud-payment-service
   datasource:
@@ -19,13 +26,6 @@ spring:
         max-idle: 8
         max-wait: 100ms
         min-idle: 0
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848 #注册中心
-nacos:
-  config:
-    server-addr: 127.0.0.1:8848 #配置中心
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ning.springcloud.entities.dao

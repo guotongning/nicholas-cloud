@@ -24,9 +24,8 @@ public class NacosConfigurationController {
     private ArticleDetailConfigInfo articleDetailConfigInfo;
 
     @GetMapping("/testJson")
-    public CommonResult<ArticleDetailConfig> getTestConfig() {
-        ArticleDetailConfig data = articleDetailConfigInfo.getData();
-        return new CommonResult<>(200, "success", data);
+    public ArticleDetailConfig getTestConfig() {
+        return articleDetailConfigInfo.getData();
     }
 
 }
