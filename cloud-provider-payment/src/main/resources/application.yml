@@ -19,6 +19,10 @@ spring:
         max-idle: 8
         max-wait: 100ms
         min-idle: 0
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ning.springcloud.entities.dao
