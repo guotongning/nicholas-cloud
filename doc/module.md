@@ -94,5 +94,14 @@ CREATE TABLE `transaction`  (
 
 ```tex
 所有项目都会用到的通用好用的工具类的聚合。
+公共的bean啥的
+```
+
+## cloud-common 公共模块
+
+> 描述
+
+```tex
+公共Bean、依赖等。
 ```
 

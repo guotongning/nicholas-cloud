@@ -1,4 +1,4 @@
-package com.ning.springcloud.common.response;
+package com.ning.springcloud.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

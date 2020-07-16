@@ -15,25 +15,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.ning.springcloud</groupId>
+            <artifactId>cloud-common</artifactId>
+            <version>1.0.0</version>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
+            <groupId>com.ning.springcloud</groupId>
+            <artifactId>api-provider-payment</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

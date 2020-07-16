@@ -15,26 +15,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.ning.springcloud</groupId>
-            <artifactId>api-base-utils</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
         </dependency>
     </dependencies>
 

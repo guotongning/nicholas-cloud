@@ -1,4 +1,4 @@
-package com.ning.springcloud.common.test;
+package com.ning.springcloud.test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
