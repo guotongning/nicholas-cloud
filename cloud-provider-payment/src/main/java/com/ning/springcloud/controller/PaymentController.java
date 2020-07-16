@@ -1,5 +1,6 @@
 package com.ning.springcloud.controller;
 
+import com.ning.springcloud.api.IPaymentService;
 import com.ning.springcloud.entities.dao.Payment;
 import com.ning.springcloud.common.response.CommonResult;
 import com.ning.springcloud.service.PaymentService;
@@ -16,13 +17,13 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 @RequestMapping("/payment")
-public class PaymentController {
+public class PaymentController implements IPaymentService {
     @Resource
     private PaymentService paymentService;
 
 
     @PostMapping(value = "/create")
-    public CommonResult<Payment> createPayment(Payment payment) {
+    public CommonResult<Payment> createPayment(@RequestBody Payment payment) {
         if (payment == null || !payment.check()) {
             return new CommonResult<>(-1, "参数不合法", null);
         }

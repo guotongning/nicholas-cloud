@@ -2,7 +2,6 @@ package com.ning.springcloud.entities.config;
 
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

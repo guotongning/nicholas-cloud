@@ -1,6 +1,6 @@
 package com.ning.springcloud.controller;
 
-import com.ning.springcloud.common.response.CommonResult;
+import com.ning.springcloud.api.INacosConfigurationService;
 import com.ning.springcloud.config.ArticleDetailConfigInfo;
 import com.ning.springcloud.entities.config.ArticleDetailConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 @RequestMapping("/config")
-public class NacosConfigurationController {
+public class NacosConfigurationController implements INacosConfigurationService {
 
     @Resource
     private ArticleDetailConfigInfo articleDetailConfigInfo;
