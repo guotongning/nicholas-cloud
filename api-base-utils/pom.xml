@@ -20,11 +20,6 @@
             <version>1.0.0</version>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.ning.springcloud</groupId>
-            <artifactId>api-provider-payment</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 
 </project>
