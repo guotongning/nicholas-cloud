@@ -1,6 +1,6 @@
 package com.ning.springcloud.service;
 
-import com.ning.springcloud.common.test.BaseTest;
+import com.ning.springcloud.test.BaseTest;
 import com.ning.springcloud.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

@@ -15,6 +15,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.ning.springcloud</groupId>
+            <artifactId>cloud-common</artifactId>
+            <version>1.0.0</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
