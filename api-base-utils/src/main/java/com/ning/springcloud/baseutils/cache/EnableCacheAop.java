@@ -42,9 +42,6 @@ public class EnableCacheAop {
             if (annotation.printResult()) {
                 log.info("cache aop : method {} invoke parameter : {}", method.getName(), JSON.toJSONString(args));
             }
-            if (annotation.printResult()) {
-                log.info("cache aop : method {} cached value return : {}", method.getName(), cache);
-            }
             result = cacheUtil.getCache(method, args);
             if (result != null) {
                 return result;

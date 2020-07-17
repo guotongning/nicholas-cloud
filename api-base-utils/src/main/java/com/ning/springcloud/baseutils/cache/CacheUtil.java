@@ -1,6 +1,7 @@
 package com.ning.springcloud.baseutils.cache;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @created by 不在能知，乃在能行 ——nicholas
  */
 @Component
+@Slf4j
 public class CacheUtil {
 
     @Autowired
@@ -59,12 +61,16 @@ public class CacheUtil {
     }
 
     public Object getCache(Method method, Object... args) {
+        EnableCache annotation = method.getAnnotation(EnableCache.class);
         String key = getCacheKey(method, args);
         String cache = redisTemplate.opsForValue().get(key);
         Object result = null;
         if (StringUtils.isNotEmpty(cache)) {
             Class<?> returnType = method.getReturnType();
             result = JSON.parseObject(cache, returnType);
+            if (annotation.printResult()) {
+                log.info("cache aop : method {} invoke parameter : {}", method.getName(), cache);
+            }
         }
         return result;
     }
