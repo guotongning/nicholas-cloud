@@ -29,7 +29,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    @EnableCache
+    @EnableCache(key = "payment:%0", printResult = true)
     public Payment getPaymentById(Long id) {
         try {
             TimeUnit.SECONDS.sleep(1);

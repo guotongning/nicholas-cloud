@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 
 /**
  * @description
@@ -35,15 +36,19 @@ public class EnableCacheAop {
         Object result = null;
         try {
             Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
+            EnableCache annotation = method.getAnnotation(EnableCache.class);
             Object[] args = joinPoint.getArgs();
+            if (annotation.printResult()) {
+                log.info("cache aop : method {} invoke parameter : {}", method.getName(), JSON.toJSONString(args));
+            }
             String cache = cacheUtil.getCache(method, args);
             if (StringUtils.isNotEmpty(cache)) {
                 Class<?> returnType = method.getReturnType();
-                EnableCache annotation = method.getAnnotation(EnableCache.class);
+                result = JSON.parseObject(cache, returnType);
                 if (annotation.printResult()) {
-                    log.info("cache aop : method {} return cache value : {}", method.getName(), cache);
+                    log.info("cache aop : method {} cached value return : {}", method.getName(), cache);
                 }
-                return JSON.parseObject(cache, returnType);
+                return result;
             }
             result = joinPoint.proceed();
             if (result != null) {
@@ -53,7 +58,7 @@ public class EnableCacheAop {
             }
             return result;
         } catch (Throwable throwable) {
-            throwable.printStackTrace();
+            log.error(throwable.getMessage(), throwable);
         }
         return result;
     }

@@ -105,3 +105,5 @@ CREATE TABLE `transaction`  (
 公共Bean、依赖等。
 ```
 
+
+

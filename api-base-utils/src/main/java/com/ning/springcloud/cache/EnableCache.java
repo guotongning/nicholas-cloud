@@ -11,7 +11,9 @@ import java.util.concurrent.TimeUnit;
 public @interface EnableCache {
     /**
      * cache key
-     *
+     * key = "" ：redis key = "方法全路径：参数列表json.hashcode()"
+     * key = "自定义key:%参数列表index" : redis key = "自定义key:参数列表对应下表的参数值"
+     * @see CacheUtil
      * @return
      */
     String key() default "";
@@ -28,7 +30,7 @@ public @interface EnableCache {
      *
      * @return
      */
-    long expireTime() default 300L;
+    long expireTime() default 10L;
 
     /**
      * 是否在日志中打印方法结果
