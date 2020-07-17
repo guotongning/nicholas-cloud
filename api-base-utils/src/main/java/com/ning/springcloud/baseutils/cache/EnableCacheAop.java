@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
+import static com.sun.corba.se.impl.util.RepositoryId.cache;
+
 /**
  * @description
  * @date 2020/7/16 16:29
@@ -40,13 +42,11 @@ public class EnableCacheAop {
             if (annotation.printResult()) {
                 log.info("cache aop : method {} invoke parameter : {}", method.getName(), JSON.toJSONString(args));
             }
-            String cache = cacheUtil.getCache(method, args);
-            if (StringUtils.isNotEmpty(cache)) {
-                Class<?> returnType = method.getReturnType();
-                result = JSON.parseObject(cache, returnType);
-                if (annotation.printResult()) {
-                    log.info("cache aop : method {} cached value return : {}", method.getName(), cache);
-                }
+            if (annotation.printResult()) {
+                log.info("cache aop : method {} cached value return : {}", method.getName(), cache);
+            }
+            result = cacheUtil.getCache(method, args);
+            if (result != null) {
                 return result;
             }
             result = joinPoint.proceed();

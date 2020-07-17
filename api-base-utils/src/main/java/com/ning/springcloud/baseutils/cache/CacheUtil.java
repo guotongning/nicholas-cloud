@@ -51,12 +51,22 @@ public class CacheUtil {
         String key = getCacheKey(method, args);
         long expireTime = annotation.expireTime();
         TimeUnit timeunit = annotation.timeunit();
-        redisTemplate.opsForValue().set(key, value, expireTime, timeunit);
+        if (expireTime > 0) {
+            redisTemplate.opsForValue().set(key, value, expireTime, timeunit);
+        } else {
+            redisTemplate.opsForValue().set(key, value);
+        }
     }
 
-    public String getCache(Method method, Object... args) {
+    public Object getCache(Method method, Object... args) {
         String key = getCacheKey(method, args);
-        return redisTemplate.opsForValue().get(key);
+        String cache = redisTemplate.opsForValue().get(key);
+        Object result = null;
+        if (StringUtils.isNotEmpty(cache)) {
+            Class<?> returnType = method.getReturnType();
+            result = JSON.parseObject(cache, returnType);
+        }
+        return result;
     }
 
 }

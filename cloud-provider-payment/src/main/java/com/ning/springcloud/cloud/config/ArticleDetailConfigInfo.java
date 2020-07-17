@@ -2,8 +2,11 @@ package com.ning.springcloud.cloud.config;
 
 import com.alibaba.fastjson.JSON;
 import com.ning.springcloud.api.entities.config.ArticleDetailConfig;
+import com.ning.springcloud.baseutils.cache.EnableCache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
@@ -18,4 +21,14 @@ public class ArticleDetailConfigInfo extends AbstractConfigInfo<ArticleDetailCon
         data = JSON.parseObject(dataStr, ArticleDetailConfig.class);
     }
 
+    @Override
+    @EnableCache
+    public ArticleDetailConfig getData() {
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return super.getData();
+    }
 }
