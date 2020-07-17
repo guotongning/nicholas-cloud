@@ -2,9 +2,10 @@ package com.ning.springcloud.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.ning.springcloud.entities.dao.Payment;
+import com.ning.springcloud.api.dto.Payment;
+import com.ning.springcloud.cloud.service.PaymentService;
 import com.ning.springcloud.test.BaseTest;
-import com.ning.springcloud.utils.NumberUtil;
+import com.ning.springcloud.baseutils.utils.NumberUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

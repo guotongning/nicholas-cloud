@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ning.springcloud.entities.dao.PaymentDao">
+<mapper namespace="com.ning.springcloud.cloud.mapper.PaymentDao">
     <sql id="PaymentSelect">
         SELECT `id`,
             serials,
@@ -17,7 +17,7 @@
             updateTime
         FROM `nicholas-cloud`.`payment`
     </sql>
-    <insert id="create" parameterType="com.ning.springcloud.entities.dao.Payment" useGeneratedKeys="true"
+    <insert id="create" parameterType="com.ning.springcloud.api.dto.Payment" useGeneratedKeys="true"
             keyProperty="id">
         INSERT INTO `nicholas-cloud`.`payment`
         (
@@ -50,7 +50,7 @@
         );
     </insert>
 
-    <resultMap id="BaseResultMap" type="com.ning.springcloud.entities.dao.Payment">
+    <resultMap id="BaseResultMap" type="com.ning.springcloud.api.dto.Payment">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <id column="serials" property="serials" jdbcType="VARCHAR"/>
         <id column="orderNo" property="orderNo" jdbcType="VARCHAR"/>
@@ -66,8 +66,13 @@
         <id column="updateTime" property="updateTime" jdbcType="BIGINT"/>
     </resultMap>
 
-    <select id="getPaymentById" resultType="com.ning.springcloud.entities.dao.Payment" resultMap="BaseResultMap">
+    <select id="getPaymentById" resultType="com.ning.springcloud.api.dto.Payment" resultMap="BaseResultMap">
         <include refid="PaymentSelect"/>
         WHERE id = #{id}
+    </select>
+
+    <select id="getPaymentByOrderNo" resultType="com.ning.springcloud.api.dto.Payment" resultMap="BaseResultMap">
+        <include refid="PaymentSelect"/>
+        WHERE orderNo = #{orderNo}
     </select>
 </mapper>

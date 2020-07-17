@@ -5,4 +5,4 @@ spring:
     name: cloud-payment-service
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.ning.springcloud.entities.dao
+  type-aliases-package: com.ning.springcloud.api.dto

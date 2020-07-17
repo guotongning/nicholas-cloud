@@ -1,5 +1,6 @@
 package com.ning.springcloud.utils;
 
+import com.ning.springcloud.baseutils.utils.NumberUtil;
 import org.junit.Test;
 
 /**
