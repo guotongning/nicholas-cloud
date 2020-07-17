@@ -1,4 +1,4 @@
-package com.ning.springcloud.config;
+package com.ning.springcloud.redis;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
