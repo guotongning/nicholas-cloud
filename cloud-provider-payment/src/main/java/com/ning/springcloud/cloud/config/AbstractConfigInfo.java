@@ -19,7 +19,7 @@ public abstract class AbstractConfigInfo<T> implements InitializingBean, Listene
     @NacosInjected
     private ConfigService configService;
 
-    protected T data;
+    public T data;
 
     public T getData() {
         return data;

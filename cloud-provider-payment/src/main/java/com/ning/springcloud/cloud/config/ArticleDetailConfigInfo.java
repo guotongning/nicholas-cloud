@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ArticleDetailConfigInfo extends AbstractConfigInfo<ArticleDetailConfig> {
     @Override
-    protected String getDataId() {
+    public String getDataId() {
         return "cloud-provider-payment:testJson";
     }
 
     @Override
-    protected void compile(String dataStr) {
+    public void compile(String dataStr) {
         data = JSON.parseObject(dataStr, ArticleDetailConfig.class);
     }
 
