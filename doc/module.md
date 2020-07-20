@@ -10,7 +10,17 @@
 5. 写业务类
 ```
 
-## cloud-payment-service 支付服务
+## api-provider-payment 支付服务API
+
+> 描述
+
+```tex
+封装了cloud-provider-payment对外暴漏的接口以及bean等相关信息。想要调用cloud-provider-payment，依赖这个包就行。
+```
+
+
+
+## cloud-provider-payment 支付服务
 
 > 描述
 
@@ -105,5 +115,11 @@ CREATE TABLE `transaction`  (
 公共Bean、依赖等。
 ```
 
+## cloud-consumer-order
 
+> 描述
+
+```tex
+订单服务
+```
 

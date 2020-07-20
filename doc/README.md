@@ -8,7 +8,7 @@
 
 [SpringCloud-官方文档-中文版](https://bookstack.cn/read/spring-cloud-docs/docs-index.md)
 
-![image-20200712134444931](E:\my_project\spring_cloud_demo\doc\image-20200712134444931.png)
+![image-20200712134444931](\image-20200712134444931.png)
 
 ## 版本选择
 
@@ -36,4 +36,5 @@ Other : does't matter
 
 [video讲解](https://www.bilibili.com/video/BV18E411x7eT?p=4)
 
-![image-20200712143950350](E:\my_project\spring_cloud_demo\doc\image-20200712143950350.png) 
+![image-20200712143950350](\image-20200712143950350.png) 
+
