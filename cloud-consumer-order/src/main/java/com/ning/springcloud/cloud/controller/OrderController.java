@@ -1,4 +1,4 @@
-package com.ning.springcloud.controller;
+package com.ning.springcloud.cloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;

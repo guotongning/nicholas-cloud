@@ -1,4 +1,4 @@
-package com.ning.springcloud.feign;
+package com.ning.springcloud.cloud.feign;
 
 import com.ning.springcloud.api.interfaces.INacosConfigurationService;
 
