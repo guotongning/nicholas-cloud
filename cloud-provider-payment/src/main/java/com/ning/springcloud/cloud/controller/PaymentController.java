@@ -16,13 +16,12 @@ import javax.annotation.Resource;
  */
 @RestController
 @Slf4j
-@RequestMapping("/payment")
 public class PaymentController implements IPaymentService {
+
     @Resource
     private PaymentService paymentService;
 
-
-    @PostMapping(value = "/create")
+    @Override
     public CommonResult<Payment> createPayment(@RequestBody Payment payment) {
         if (payment == null || !payment.check()) {
             return new CommonResult<>(-1, "参数不合法", null);
@@ -37,7 +36,7 @@ public class PaymentController implements IPaymentService {
         }
     }
 
-    @GetMapping(value = "/select/id/{id}")
+    @Override
     public CommonResult<Payment> selectPaymentById(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         if (payment != null) {
@@ -48,7 +47,6 @@ public class PaymentController implements IPaymentService {
     }
 
     @Override
-    @GetMapping(value = "/select/orderNo/{orderNo}")
     public CommonResult<Payment> selectPaymentByOrderNo(@PathVariable("orderNo") String orderNo) {
         Payment payment = paymentService.getPaymentByOrderNo(orderNo);
         if (payment != null) {
