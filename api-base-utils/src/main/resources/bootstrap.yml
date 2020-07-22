@@ -1,7 +1,13 @@
 nacos:
   config:
     server-addr: 127.0.0.1:8848 #配置中心
-
+logging:
+  level:
+    com:
+      alibaba:
+        nacos:
+          client:
+            naming: error
 spring:
   cloud:
     nacos:
@@ -24,6 +30,12 @@ spring:
         max-idle: 8
         max-wait: 100ms
         min-idle: 0
+#暴露自己的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 feign:
   client:
     config:

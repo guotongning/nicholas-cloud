@@ -3,6 +3,14 @@ server:
 spring:
   application:
     name: CloudPaymentService
+  cloud:
+    sentinel:
+      filter:
+        enabled: false
+      transport:
+        port: 10090
+        dashboard: 127.0.0.1:10090
+        client-ip: 127.0.0.1
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ning.springcloud.api.dto

@@ -1,11 +1,12 @@
 package com.ning.springcloud.cloud.controller;
 
-import com.ning.springcloud.api.interfaces.IPaymentService;
 import com.ning.springcloud.api.dto.Payment;
-import com.ning.springcloud.response.CommonResult;
+import com.ning.springcloud.api.interfaces.IPaymentService;
 import com.ning.springcloud.cloud.service.PaymentService;
+import com.ning.springcloud.response.CommonResult;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -22,7 +23,7 @@ public class PaymentController implements IPaymentService {
     private PaymentService paymentService;
 
     @Override
-    public CommonResult<Payment> createPayment(@RequestBody Payment payment) {
+    public CommonResult<Payment> createPayment(Payment payment) {
         if (payment == null || !payment.check()) {
             return new CommonResult<>(-1, "参数不合法", null);
         }
@@ -47,7 +48,7 @@ public class PaymentController implements IPaymentService {
     }
 
     @Override
-    public CommonResult<Payment> selectPaymentByOrderNo(@PathVariable("orderNo") String orderNo) {
+    public CommonResult<Payment> selectPaymentByOrderNo(String orderNo) {
         Payment payment = paymentService.getPaymentByOrderNo(orderNo);
         if (payment != null) {
             return new CommonResult<>(200, "success", payment);
