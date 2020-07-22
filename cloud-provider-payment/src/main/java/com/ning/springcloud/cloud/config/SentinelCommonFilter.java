@@ -5,7 +5,6 @@ import com.alibaba.csp.sentinel.EntryType;
 import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.Tracer;
 import com.alibaba.csp.sentinel.adapter.servlet.callback.RequestOriginParser;
-import com.alibaba.csp.sentinel.adapter.servlet.callback.UrlCleaner;
 import com.alibaba.csp.sentinel.adapter.servlet.callback.WebCallbackManager;
 import com.alibaba.csp.sentinel.adapter.servlet.util.FilterUtil;
 import com.alibaba.csp.sentinel.context.ContextUtil;
@@ -71,12 +70,10 @@ public class SentinelCommonFilter implements Filter {
 
             ContextUtil.enter(target, origin);
             entry = SphU.entry(target, EntryType.IN);
-
             // Add method specification if necessary
             if (httpMethodSpecify) {
                 methodEntry = SphU.entry(httpServletRequest.getMethod().toUpperCase() + COLON + target, EntryType.IN);
             }
-
             chain.doFilter(request, response);
         } catch (BlockException e) {
             // Return the block page, or redirect to another URL.
@@ -103,8 +100,6 @@ public class SentinelCommonFilter implements Filter {
      * @return
      */
     protected String resolveTarget(HttpServletRequest request) {
-        String target = FilterUtil.filterTarget(request);
-
         String pattern = "";
         for (HandlerMapping mapping : dispatcherServlet.getHandlerMappings()) {
             HandlerExecutionChain handler = null;
@@ -132,16 +127,7 @@ public class SentinelCommonFilter implements Filter {
         // Clean and unify the URL.
         // For REST APIs, you have to clean the URL (e.g. `/foo/1` and `/foo/2` -> `/foo/:id`), or
         // the amount of context and resources will exceed the threshold.
-        UrlCleaner urlCleaner = WebCallbackManager.getUrlCleaner();
-        if (urlCleaner != null) {
-            if (StringUtils.isNotEmpty(pattern) && urlCleaner instanceof RestfulUrlCleaner) {
-                RestfulUrlCleaner restfulUrlCleaner = (RestfulUrlCleaner) urlCleaner;
-                target = restfulUrlCleaner.clean(target, pattern);
-            } else {
-                target = urlCleaner.clean(target);
-            }
-        }
-        return target;
+        return pattern;
 
     }
 
