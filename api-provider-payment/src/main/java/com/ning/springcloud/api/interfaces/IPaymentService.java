@@ -3,21 +3,18 @@ package com.ning.springcloud.api.interfaces;
 
 import com.ning.springcloud.api.dto.Payment;
 import com.ning.springcloud.response.CommonResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RequestMapping("/payment")
 public interface IPaymentService {
 
     @PostMapping(value = "/create")
-    CommonResult<Payment> createPayment(Payment payment);
+    CommonResult<Payment> createPayment(@RequestBody Payment payment);
 
     @GetMapping(value = "/select/id/{id}")
-    CommonResult<Payment> selectPaymentById(Long id);
+    CommonResult<Payment> selectPaymentById(@PathVariable("id") Long id);
 
     @GetMapping(value = "/select/orderNo/{orderNo}")
-    CommonResult<Payment> selectPaymentByOrderNo(String orderNo);
+    CommonResult<Payment> selectPaymentByOrderNo(@PathVariable("orderNo") String orderNo);
 }

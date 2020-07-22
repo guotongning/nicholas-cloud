@@ -1,14 +1,15 @@
 package com.ning.springcloud.cloud.controller;
 
-import com.ning.springcloud.api.interfaces.INacosConfigurationService;
 import com.ning.springcloud.api.entities.config.ArticleDetailConfig;
+import com.ning.springcloud.api.interfaces.INacosConfigurationService;
 import com.ning.springcloud.cloud.config.ArticleDetailConfigInfo;
+import com.ning.springcloud.config.AbstractConfigInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @description
@@ -17,15 +18,13 @@ import javax.annotation.Resource;
  */
 @RestController
 @Slf4j
-@RequestMapping("/config")
 public class NacosConfigurationController implements INacosConfigurationService {
-
     @Resource
     private ArticleDetailConfigInfo articleDetailConfigInfo;
 
-    @GetMapping("/testJson")
-    public ArticleDetailConfig getTestConfig() {
+
+    @Override
+    public ArticleDetailConfig getTestJson() {
         return articleDetailConfigInfo.getData();
     }
-
 }

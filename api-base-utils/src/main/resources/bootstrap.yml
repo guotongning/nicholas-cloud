@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848 #注册中心
+        server-addr: 127.0.0.1:8848 #注册中心
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
@@ -24,3 +24,15 @@ spring:
         max-idle: 8
         max-wait: 100ms
         min-idle: 0
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 20000
+        readTimeout: 20000
+  httpclient:
+    connection-timeout: 20000
+    connection-timer-repeat: 20000
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50

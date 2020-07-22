@@ -1,11 +1,13 @@
-package com.ning.springcloud.cloud.config;
+package com.ning.springcloud.config;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.config.listener.Listener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
-import com.alibaba.nacos.api.config.listener.Listener;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executor;
 
 /**
@@ -20,6 +22,12 @@ public abstract class AbstractConfigInfo<T> implements InitializingBean, Listene
     private ConfigService configService;
 
     public T data;
+
+    public String name;
+
+    public String getName() {
+        return name;
+    }
 
     public T getData() {
         return data;

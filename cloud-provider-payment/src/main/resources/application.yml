@@ -2,7 +2,7 @@ server:
   port: 8001
 spring:
   application:
-    name: cloud-payment-service
+    name: CloudPaymentService
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ning.springcloud.api.dto
