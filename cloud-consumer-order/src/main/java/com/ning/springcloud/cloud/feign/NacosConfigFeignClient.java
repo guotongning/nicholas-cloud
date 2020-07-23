@@ -8,6 +8,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @date 2020/7/22 11:16
  * @created by 不在能知，乃在能行 ——nicholas
  */
-@FeignClient(name = "CloudPaymentService",contextId = "payment-config")
+@FeignClient(name = "cloud-payment-service",contextId = "payment-config")
 public interface NacosConfigFeignClient extends INacosConfigurationService {
 }

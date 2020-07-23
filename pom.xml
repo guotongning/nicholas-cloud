@@ -15,6 +15,7 @@
         <module>cloud-provider-payment</module>
         <module>cloud-consumer-order</module>
         <module>cloud-common</module>
+        <module>cloud-gateway</module>
     </modules>
 
     <!--jar 版本统一管理-->

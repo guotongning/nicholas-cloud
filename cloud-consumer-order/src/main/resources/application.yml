@@ -2,4 +2,4 @@ server:
   port: 80
 spring:
   application:
-    name: CloudOrderService
+    name: cloud-order-service

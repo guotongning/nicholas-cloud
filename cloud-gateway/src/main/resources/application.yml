@@ -1,0 +1,22 @@
+server:
+  port: 9000
+logging:
+  level:
+    com:
+      alibaba:
+        nacos:
+          client:
+            naming: error
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #注册中心
+    gateway:
+      routes:
+        - id: order-service
+          uri: http://localhost:80
+          predicates:
+            - Path=/order/**
