@@ -9,7 +9,7 @@ logging:
             naming: error
 spring:
   application:
-    name: gateway-server
+    name: gateway-service
   cloud:
     nacos:
       discovery:

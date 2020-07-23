@@ -112,7 +112,15 @@ CREATE TABLE `transaction`  (
 > 描述
 
 ```tex
-公共Bean、依赖等。
+公共Bean、依赖等、bootstrap.yml
+```
+
+## gateway-service 网关服务
+
+> 描述
+
+```tex
+微服务的网关服务，可以做集群。
 ```
 
 ## cloud-consumer-order
