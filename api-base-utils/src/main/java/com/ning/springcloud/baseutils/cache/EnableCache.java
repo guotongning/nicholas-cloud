@@ -13,8 +13,9 @@ public @interface EnableCache {
      * cache key
      * key = "" ：redis key = "方法全路径：参数列表json.hashcode()"
      * key = "自定义key:%参数列表index" : redis key = "自定义key:参数列表对应下表的参数值"
-     * @see CacheUtil
+     *
      * @return
+     * @see CacheUtil
      */
     String key() default "";
 
@@ -33,10 +34,19 @@ public @interface EnableCache {
     long expireTime() default 10L;
 
     /**
-     * 是否在日志中打印方法结果
-     * @see EnableCacheAop
+     * 是否在日志中打印方法参数
+     *
      * @return
+     * @see EnableCacheAop
      */
-    boolean printResult() default false;
+    boolean printParameter() default false;
+
+    /**
+     * 是否在日志中打印方法结果
+     *
+     * @return
+     * @see EnableCacheAop
+     */
+    boolean printReturnValue() default false;
 
 }

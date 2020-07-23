@@ -1,19 +1,19 @@
 package com.ning.springcloud.baseutils.cache;
 
 import com.alibaba.fastjson.JSON;
+import com.ning.springcloud.baseutils.log.InvocationDetail;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-
-import static com.sun.corba.se.impl.util.RepositoryId.cache;
 
 /**
  * @description
@@ -23,6 +23,7 @@ import static com.sun.corba.se.impl.util.RepositoryId.cache;
 @Aspect
 @Slf4j
 @Component
+@Order(2)
 public class EnableCacheAop {
 
     @Autowired
@@ -38,11 +39,20 @@ public class EnableCacheAop {
         try {
             Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
             EnableCache annotation = method.getAnnotation(EnableCache.class);
+            InvocationDetail detailAnnotation = method.getAnnotation(InvocationDetail.class);
             Object[] args = joinPoint.getArgs();
-            if (annotation.printResult()) {
+            if (annotation.printParameter() && (detailAnnotation == null || !detailAnnotation.printMethodParameters())) {
                 log.info("cache aop : method {} invoke parameter : {}", method.getName(), JSON.toJSONString(args));
             }
-            result = cacheUtil.getCache(method, args);
+            String cache = cacheUtil.getCache(method, args);
+            if (StringUtils.isNotEmpty(cache)) {
+                Class<?> returnType = method.getReturnType();
+                result = JSON.parseObject(cache, returnType);
+            }
+            if (annotation.printReturnValue() && (detailAnnotation == null ||
+                    (!detailAnnotation.printReturnValue() && !detailAnnotation.printReturnValueFormatted()))) {
+                log.info("cache aop : method {} invoke return : {}", method.getName(), cache);
+            }
             if (result != null) {
                 return result;
             }

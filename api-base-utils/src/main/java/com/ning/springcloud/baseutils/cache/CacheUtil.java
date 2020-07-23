@@ -60,19 +60,9 @@ public class CacheUtil {
         }
     }
 
-    public Object getCache(Method method, Object... args) {
-        EnableCache annotation = method.getAnnotation(EnableCache.class);
+    public String getCache(Method method, Object... args) {
         String key = getCacheKey(method, args);
-        String cache = redisTemplate.opsForValue().get(key);
-        Object result = null;
-        if (StringUtils.isNotEmpty(cache)) {
-            Class<?> returnType = method.getReturnType();
-            result = JSON.parseObject(cache, returnType);
-            if (annotation.printResult()) {
-                log.info("cache aop : method {} invoke parameter : {}", method.getName(), cache);
-            }
-        }
-        return result;
+        return redisTemplate.opsForValue().get(key);
     }
 
 }
