@@ -17,4 +17,8 @@ public interface IPaymentService {
 
     @GetMapping(value = "/select/orderNo/{orderNo}")
     CommonResult<Payment> selectPaymentByOrderNo(@PathVariable("orderNo") String orderNo);
+
+    @GetMapping("/image/wechat")
+    String getPaymentImage();
+
 }

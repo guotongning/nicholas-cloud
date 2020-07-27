@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 
 /**
  * @Author: nicholas
@@ -41,5 +45,20 @@ public class OrderController {
     public CommonResult<ArticleDetailConfig> getConfigByName() {
         ArticleDetailConfig byName = nacosConfigFeignClient.getTestJson();
         return new CommonResult<>(200, "success", byName);
+    }
+
+    @GetMapping("/payImage/wechat")
+    public void payImage(HttpServletResponse response) {
+        String path = paymentService.getPaymentImage();
+        try {
+            response.setContentType("image/jpeg");
+            response.setDateHeader("expries", -1);
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Pragma", "no-cache");
+            BufferedImage buffImg = ImageIO.read(new FileInputStream(path));
+            ImageIO.write(buffImg, "png", response.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
