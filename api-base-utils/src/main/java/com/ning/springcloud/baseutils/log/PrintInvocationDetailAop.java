@@ -41,7 +41,7 @@ public class PrintInvocationDetailAop {
             long start = System.currentTimeMillis();
             Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
             InvocationDetail annotation = method.getAnnotation(InvocationDetail.class);
-            if (annotation.printLogInOnline() || !"online".equals(active)) {
+            if (annotation.printOnlineLog() || !"online".equals(active)) {
                 String requestSerial = "";
                 if (annotation.printRequestSerial()) {
                     requestSerial = UUID.randomUUID().toString().replaceAll("-", "");

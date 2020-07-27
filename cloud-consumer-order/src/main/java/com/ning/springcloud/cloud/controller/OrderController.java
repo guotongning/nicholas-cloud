@@ -36,7 +36,6 @@ public class OrderController {
 
     @GetMapping("/get/id/{id}")
     public CommonResult<Payment> selectPaymentById(@PathVariable("id") Long id) {
-        log.info("request path : /get/id/{}", id);
         return paymentService.selectPaymentById(id);
     }
 

@@ -19,7 +19,7 @@ public @interface InvocationDetail {
 
     boolean printInvokeTime() default false;
 
-    boolean printLogInOnline() default false;
+    boolean printOnlineLog() default false;
 
     boolean printRequestSerial() default false;
 }
