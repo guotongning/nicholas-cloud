@@ -21,8 +21,8 @@ public class JwtUtil {
      * CALENDAR_INTERVAL 有效时间
      * SECRET_KEY 密匙
      */
-    public static final int CALENDAR_FIELD = Calendar.MINUTE;
-    public static final int CALENDAR_INTERVAL = 60 * 24;
+    public static final int CALENDAR_FIELD = Calendar.SECOND;
+    public static final int CALENDAR_INTERVAL = 60 * 60 * 24 * 7;
     private static final String SECRET_KEY = "6A50A18D70FA63636645C686964F1D78";
 
     public static void main(String[] args) {
