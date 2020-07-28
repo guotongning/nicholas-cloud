@@ -44,7 +44,7 @@ public class RedisUtils {
     public boolean expire(String key, long time, TimeUnit timeUnit) {
         try {
             if (time > 0) {
-                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+                redisTemplate.expire(key, time, timeUnit);
             }
             return true;
         } catch (Exception e) {
@@ -69,7 +69,7 @@ public class RedisUtils {
      * @param key 键
      * @return true 存在 false不存在
      */
-    public boolean hasKey(String key) {
+    public boolean existKey(String key) {
         try {
             return redisTemplate.hasKey(key);
         } catch (Exception e) {
