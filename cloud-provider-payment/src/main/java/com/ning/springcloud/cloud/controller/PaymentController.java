@@ -2,7 +2,7 @@ package com.ning.springcloud.cloud.controller;
 
 import com.ning.springcloud.api.dto.Payment;
 import com.ning.springcloud.api.interfaces.IPaymentService;
-import com.ning.springcloud.baseutils.image.ImageUtils;
+import com.ning.springcloud.baseutils.utils.ImageUtils;
 import com.ning.springcloud.cloud.service.PaymentService;
 import com.ning.springcloud.response.CommonResult;
 import lombok.extern.slf4j.Slf4j;

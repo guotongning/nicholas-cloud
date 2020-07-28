@@ -1,4 +1,4 @@
-package com.ning.springcloud.baseutils.image;
+package com.ning.springcloud.baseutils.utils;
 
 import org.apache.commons.codec.binary.Base64;
 

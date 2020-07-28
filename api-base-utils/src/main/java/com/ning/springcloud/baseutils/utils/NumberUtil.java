@@ -9,9 +9,13 @@ import java.util.Random;
  */
 public class NumberUtil {
 
+    public static void main(String[] args) {
+        System.out.println(getOrderNo());
+    }
+
     public static String getOrderNo() {
-        //14位
-        long timeMillis = System.currentTimeMillis();
+        //15位
+        long timeMillis = System.nanoTime();
         //6位
         String randomNumber = getRandomNumberByLength(6);
         return timeMillis + randomNumber;
