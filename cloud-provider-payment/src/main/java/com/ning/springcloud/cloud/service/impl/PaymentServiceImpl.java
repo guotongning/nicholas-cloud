@@ -1,8 +1,6 @@
 package com.ning.springcloud.cloud.service.impl;
 
 import com.ning.springcloud.api.dto.Payment;
-import com.ning.springcloud.baseutils.cache.EnableCache;
-import com.ning.springcloud.baseutils.log.InvocationDetail;
 import com.ning.springcloud.cloud.mapper.PaymentDao;
 import com.ning.springcloud.cloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,8 +27,6 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    @EnableCache(printParameter = true, printReturnValue = true)
-    @InvocationDetail(methodName = "根据ID获取订单", printMethodParameters = false, printInvokeTime = true, printRequestSerial = true)
     public Payment getPaymentById(Long id) {
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -41,7 +37,6 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    @EnableCache
     public Payment getPaymentByOrderNo(String orderNo) {
         try {
             TimeUnit.SECONDS.sleep(1);

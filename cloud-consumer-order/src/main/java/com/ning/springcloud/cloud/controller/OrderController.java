@@ -36,13 +36,15 @@ public class OrderController {
     private NacosConfigFeignClient nacosConfigFeignClient;
 
     @GetMapping("/get/id/{id}")
+    @EnableCache()
+    @InvocationDetail(methodName = "根据ID获取订单", printReturnValueFormatted = true, printInvokeTime = true, printRequestSerial = true)
     public CommonResult<Payment> selectPaymentById(@PathVariable("id") Long id) {
         return paymentService.selectPaymentById(id);
     }
 
     @GetMapping("/config/get/testJson")
     @EnableCache
-    @InvocationDetail(methodName = "获取测试配置",printReturnValueFormatted = true, printInvokeTime = true, printRequestSerial = true)
+    @InvocationDetail(methodName = "获取测试配置", printReturnValueFormatted = true, printInvokeTime = true, printRequestSerial = true)
     public CommonResult<ArticleDetailConfig> getConfigByName() {
         ArticleDetailConfig byName = nacosConfigFeignClient.getTestJson();
         return new CommonResult<>(200, "success", byName);

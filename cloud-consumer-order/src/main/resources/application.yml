@@ -3,3 +3,11 @@ server:
 spring:
   application:
     name: cloud-order-service
+  cloud:
+    sentinel:
+      filter:
+        enabled: false
+      transport:
+        port: 10090
+        dashboard: 127.0.0.1:10090
+        client-ip: 127.0.0.1
