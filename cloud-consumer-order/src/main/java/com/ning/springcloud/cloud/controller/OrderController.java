@@ -36,7 +36,7 @@ public class OrderController {
     private NacosConfigFeignClient nacosConfigFeignClient;
 
     @GetMapping("/get/id/{id}")
-    @EnableCache()
+    @EnableCache
     @InvocationDetail(methodName = "根据ID获取订单", printReturnValueFormatted = true, printInvokeTime = true, printRequestSerial = true)
     public CommonResult<Payment> selectPaymentById(@PathVariable("id") Long id) {
         return paymentService.selectPaymentById(id);
