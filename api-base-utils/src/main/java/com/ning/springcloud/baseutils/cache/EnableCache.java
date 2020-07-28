@@ -31,7 +31,7 @@ public @interface EnableCache {
      *
      * @return
      */
-    long expireTime() default 10L;
+    long expireTime() default 60L;
 
     /**
      * 是否在日志中打印方法参数
