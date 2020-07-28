@@ -3,7 +3,7 @@ package com.ning.springcloud.api.entities.config;
 /**
  * @description
  * @date 2020/7/27 10:58
- * @created by 不在能知，乃在能行 ——nicholas
+ * @author 不在能知，乃在能行 ——nicholas
  */
 public class PaymentImage {
     /**

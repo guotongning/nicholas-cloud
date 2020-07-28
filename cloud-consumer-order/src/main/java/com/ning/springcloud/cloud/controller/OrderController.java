@@ -3,6 +3,7 @@ package com.ning.springcloud.cloud.controller;
 import com.ning.springcloud.api.dto.Payment;
 import com.ning.springcloud.api.entities.config.ArticleDetailConfig;
 import com.ning.springcloud.baseutils.cache.EnableCache;
+import com.ning.springcloud.baseutils.log.InvocationDetail;
 import com.ning.springcloud.cloud.feign.NacosConfigFeignClient;
 import com.ning.springcloud.cloud.feign.PaymentServiceFeignClient;
 import com.ning.springcloud.response.CommonResult;
@@ -41,6 +42,7 @@ public class OrderController {
 
     @GetMapping("/config/get/testJson")
     @EnableCache
+    @InvocationDetail(methodName = "获取测试配置",printReturnValueFormatted = true, printInvokeTime = true, printRequestSerial = true)
     public CommonResult<ArticleDetailConfig> getConfigByName() {
         ArticleDetailConfig byName = nacosConfigFeignClient.getTestJson();
         return new CommonResult<>(200, "success", byName);

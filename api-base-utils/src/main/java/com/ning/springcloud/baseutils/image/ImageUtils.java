@@ -9,7 +9,7 @@ import java.io.InputStream;
 /**
  * @description
  * @date 2020/7/27 10:50
- * @created by 不在能知，乃在能行 ——nicholas
+ * @author 不在能知，乃在能行 ——nicholas
  */
 public class ImageUtils {
     public static final String WECHAT_PAYMENT_IMAGE_PATH = "D:\\project\\test\\nicholas-cloud\\cloud-provider-payment\\src\\main\\resources\\image\\payment_nicholas_2020年7月27日.png";

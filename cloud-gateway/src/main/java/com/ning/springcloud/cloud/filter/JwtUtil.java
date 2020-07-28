@@ -30,6 +30,7 @@ public class JwtUtil {
         userMap.put("userId", "6123462453445");
         System.out.println(createToken(userMap));
     }
+
     /**
      * 创建Token
      *
@@ -72,8 +73,8 @@ public class JwtUtil {
         try {
             verifier = JWT.require(algorithm).build().verify(token);
         } catch (Exception e) {
-            // TODO: 处理验证异常
-
+            //TODO 可以当业务异常处理
+            e.printStackTrace();
         }
         assert verifier != null;
         return verifier.getClaim("userInfo").asMap();

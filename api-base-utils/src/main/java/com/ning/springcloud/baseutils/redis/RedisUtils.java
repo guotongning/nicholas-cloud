@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @description
  * @date 2020/7/14 10:43
- * @created by 不在能知，乃在能行 ——nicholas
+ * @author 不在能知，乃在能行 ——nicholas
  */
 @Component
 public class RedisUtils {

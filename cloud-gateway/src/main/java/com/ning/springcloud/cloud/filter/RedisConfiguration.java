@@ -15,7 +15,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * @description
  * @date 2020/7/14 10:38
- * @created by 不在能知，乃在能行 ——nicholas
+ * @author 不在能知，乃在能行 ——nicholas
  */
 @Configuration
 public class RedisConfiguration {

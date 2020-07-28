@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * @description
  * @date 2020/7/27 14:13
- * @created by 不在能知，乃在能行 ——nicholas
+ * @author 不在能知，乃在能行 ——nicholas
  */
 @Slf4j
 @Component
@@ -80,7 +80,7 @@ public class LoginFilter implements GlobalFilter, Ordered {
                 return response.setComplete();
             }
         }
-        //没有cookie不放行
+        //没有cookie，丢弃请求。
         response.setStatusCode(HttpStatus.FORBIDDEN);
         return response.setComplete();
     }
