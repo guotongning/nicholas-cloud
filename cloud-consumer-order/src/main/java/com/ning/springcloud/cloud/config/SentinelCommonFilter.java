@@ -12,7 +12,6 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
@@ -22,6 +21,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.HandlerExecutionChain;
 import org.springframework.web.servlet.HandlerMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +44,7 @@ public class SentinelCommonFilter implements Filter {
 
     private Map<HandlerMethod, String> handlerMethodUrlMap = new ConcurrentHashMap<>(32);
 
-    @Autowired
+    @Resource
     private DispatcherServlet dispatcherServlet;
 
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
