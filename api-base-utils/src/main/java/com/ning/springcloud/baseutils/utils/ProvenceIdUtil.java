@@ -11,9 +11,14 @@ import java.util.Map;
 public class ProvenceIdUtil {
     private static Map<String, String> provenceIds = new HashMap<>();
 
+    /**
+     * 没有港澳台
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         getByNumberOrDesc("山西:1", "甘肃:2", "湖北:4");
-        getByNumberOrDesc("14:1","62:2","42:4");
+        getByNumberOrDesc("14:1", "62:2", "42:4");
     }
 
     public static void getByNumberOrDesc(String... numberOrDesc) {
